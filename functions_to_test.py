@@ -15,11 +15,10 @@ def count_word_occurrences(text, word):
    if type(text) != str or type(word) != str:
        raise TypeError("Need to be a string")
    
-   text = text.lower()
+   text = text.lower().split()
    word = word.lower()
-   words = text.split()
-
-   return words.count(word)
+   
+   return text.count(word)
 
 def read_file_lines(filepath):
     with open(filepath, 'r') as f:
