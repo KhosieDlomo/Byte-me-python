@@ -10,9 +10,16 @@ def find_maximum(a, b, c):
 def is_palindrome(string):
     return string == string[::-1]
 
+
 def count_word_occurrences(text, word):
-    text = text.split()
-    return text.count(word)
+   if type(text) != str or type(word) != str:
+       raise TypeError("Need to be a string")
+   
+   text = text.lower()
+   word = word.lower()
+   words = text.split()
+
+   return words.count(word)
 
 def read_file_lines(filepath):
     with open(filepath, 'r') as f:
