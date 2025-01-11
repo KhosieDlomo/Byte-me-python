@@ -17,7 +17,7 @@ def count_word_occurrences(text, word):
    
    text = text.lower().split()
    word = word.lower()
-   
+
    return text.count(word)
 
 def read_file_lines(filepath):
@@ -25,6 +25,8 @@ def read_file_lines(filepath):
         return f.readlines()
 
 def factorial(n):
+    if n == 1 or n == 0:
+       return 1
     x = 1
     for i in range(1, n+ 1):
         x *= i
@@ -43,14 +45,14 @@ def is_prime(n):
 
 def sort_numbers(numbers):
     numbers = []
-    return numbers.sort(reverse = True)
+    return numbers.sort(ascii)
     
 
 def factorial(n):
-   if n == 1 or n == 0:
-       return 1
    if n < 0:
         return ""
+   if type(n) != int:
+       raise TypeError('Invalid input')
    if n < 0:
        raise ValueError("Invalid input type")
    x = 1
@@ -87,8 +89,11 @@ def tower_of_hanoi(n, source, auxiliary, target):
 
 class Person:
     def __init__(self, name, age):
-        self.name = str(name)
-        self.age = int(age)
+        if type(age) != int or type(name) != str:
+            raise TypeError('Age should only be integer, nae can only be a string')
+        self.name = name
+        self.age = age
+        
 
 if __name__ == "__main__":
     # Placeholder functions for Python basics, to be implemented later
